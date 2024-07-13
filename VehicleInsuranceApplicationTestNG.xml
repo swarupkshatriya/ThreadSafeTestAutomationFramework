@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite1" verbose="1" parallel="methods" thread-count="4">
+
+    <test name="Regression1"  parallel="true" group-by-instances="true">
+       <!-- test {
+            systemProperty("testng.jupiter.execution.parallel.enabled", true) systemProperty("testng.jupiter.execution.parallel.mode.default", "CONCURRENT")
+        }-->
+
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="execution" value="Remote"/>
+        <parameter name="remoteHubAddress" value="http://localhost:4445/wd/hub"/>
+        <classes>
+            <class name="testRunnerFile.TestRunnerForVehicleInsurance"/>
+        </classes>
+    </test>
+</suite>
