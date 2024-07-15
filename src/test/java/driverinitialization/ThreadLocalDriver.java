@@ -28,9 +28,12 @@ public class ThreadLocalDriver {
     public synchronized void setDriver(String Browser){
         switch (Browser){
             case "Chrome": {
+                System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\DriverFolder\\chromedriver.exe");
                 ChromeOptions option = new ChromeOptions();
+
                 option.addArguments("--start-maximized");
                 driver.set(new ChromeDriver(option));
+
                 break;
             }
             case "Edge": {
