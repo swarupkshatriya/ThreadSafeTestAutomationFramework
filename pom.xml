@@ -133,11 +133,11 @@
       <artifactId>openxml4j</artifactId>
       <version>1.0-beta</version>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml-schemas</artifactId>
       <version>4.1.2</version>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-scratchpad</artifactId>
