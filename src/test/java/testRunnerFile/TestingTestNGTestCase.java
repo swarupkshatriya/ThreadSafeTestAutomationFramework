@@ -212,25 +212,25 @@ public class TestingTestNGTestCase extends ExtentReportGenerationClass{
     public void tearDown(ITestResult result){
 
         switch (result.getStatus()){
-            case 1 -> {
+            case 1 :
                 if(ExtentTestManager.getInstance(test).getTest()!=null){
                     ExtentTestManager.getInstance(test).getTest().pass("Test Case is Passed");
                     ExtentTestManager.getInstance(test).getTest().info("Test Completed");
                 }
-            }
-            case 2 -> {
+
+            case 2 :
                 if(ExtentTestManager.getInstance(test).getTest()!=null){
                     ExtentTestManager.getInstance(test).getTest().fail("Test Case is Failed");
                 }
 
 
-            }
-            case 3 ->{
+
+            case 3:
                 if(ExtentTestManager.getInstance(test).getTest()!=null){
                     ExtentTestManager.getInstance(test).getTest().skip("Skip the Test Case as Flag is set as N");
                 }
 
-            }
+
 
 
         }

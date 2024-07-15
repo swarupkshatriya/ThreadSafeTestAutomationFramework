@@ -92,19 +92,19 @@ public class TestDataReader extends ExtentReportGenerationClass {
                 for (int j = 0; j < colnumber; j++) {
                     cellval = sheet.getRow(matchingrow).getCell(j);
                     switch (cellval.getCellType()) {
-                        case STRING -> {
+                        case STRING:
                             data = cellval.getStringCellValue();
                             break;
-                        }
-                        case NUMERIC -> {
+
+                        case NUMERIC:
                             data = String.valueOf(cellval.getNumericCellValue());
                             break;
-                        }
-                        case FORMULA -> {
+
+                        case FORMULA:
                             data = cellval.getCellFormula();
                             break;
-                        }
-                        case BOOLEAN -> {
+
+                        case BOOLEAN:
                             boolean bool = cellval.getBooleanCellValue();
                             if (bool) {
                                 data = "True";
@@ -112,21 +112,21 @@ public class TestDataReader extends ExtentReportGenerationClass {
                                 data = "false";
                             }
                             break;
-                        }
-                        case ERROR -> {
+
+                        case ERROR :
                             data = cellval.getErrorCellString();
                             break;
-                        }
-                        case _NONE -> {
+
+                        case _NONE :
                             data = "";
                             break;
-                        }
-                        case BLANK -> {
+
+                        case BLANK :
                             data = "";
-                        }
-                        default -> {
+
+                        default:
                             data = null;
-                        }
+
                     }
                     datatable1.put(sheet.getRow(0).getCell(j).getStringCellValue(), data);
 
@@ -252,19 +252,19 @@ public class TestDataReader extends ExtentReportGenerationClass {
 
                     switch (cellval.getCellType())
                     {
-                        case STRING -> {
+                        case STRING:
                             data = cellval.getStringCellValue();
                             break;
-                        }
-                        case NUMERIC -> {
+
+                        case NUMERIC:
                             data = String.valueOf(cellval.getNumericCellValue());
                             break;
-                        }
-                        case FORMULA -> {
+
+                        case FORMULA:
                             data = String.valueOf(cellval.getCellFormula());
                             break;
-                        }
-                        case BOOLEAN -> {
+
+                        case BOOLEAN:
                             boolean bool = cellval.getBooleanCellValue();
                             if (bool) {
                                 data = "True";
@@ -272,21 +272,21 @@ public class TestDataReader extends ExtentReportGenerationClass {
                                 data = "false";
                             }
                             break;
-                        }
-                        case ERROR -> {
+
+                        case ERROR :
                             data = cellval.getErrorCellString();
                             break;
-                        }
-                        case _NONE -> {
+
+                        case _NONE:
                             data = "";
                             break;
-                        }
-                        case BLANK -> {
+
+                        case BLANK:
                             data = "";
-                        }
-                        default -> {
+
+                        default:
                             data = null;
-                        }
+
 
                     }
                     try {
