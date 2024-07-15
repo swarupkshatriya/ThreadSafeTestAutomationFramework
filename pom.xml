@@ -133,6 +133,13 @@
       <artifactId>openxml4j</artifactId>
       <version>1.0-beta</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.10-FINAL</version>
+    </dependency>
+
+
 
 
   </dependencies>
