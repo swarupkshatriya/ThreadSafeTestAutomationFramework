@@ -37,12 +37,14 @@ public class ThreadLocalDriver {
                 break;
             }
             case "Edge": {
+                System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"\\DriverFolder\\msedgedriver.exe");
                 EdgeOptions option = new EdgeOptions();
                 option.addArguments("--start-maximized");
                 driver.set(new EdgeDriver(option));
                 break;
             }
             case "FireFox": {
+                System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\DriverFolder\\geckodriver.exe");
                 FirefoxOptions options = new FirefoxOptions();
                 //options.addArguments("--maximized");
                 //  Thread t3=new Thread(new FireFoxDriverInitiation(),"FireFoxInitiation");
