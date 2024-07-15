@@ -210,19 +210,19 @@ public class TestingParallel extends ExtentReportGenerationClass{
                         ExtentTestManager.getInstance(test).getTest().pass("Test Case is Passed");
                         ExtentTestManager.getInstance(test).getTest().info("Test Completed");
                     }
-
+                    break;
 
             case 2 :
                 if(ExtentTestManager.getInstance(test).getTest()!=null){
                     ExtentTestManager.getInstance(test).getTest().fail("Test Case is Failed");
                 }
-
+                break;
 
             case 3 :
                 if(ExtentTestManager.getInstance(test).getTest()!=null){
                     ExtentTestManager.getInstance(test).getTest().skip("Skip the Test Case as Flag is set as N");
                 }
-
+                break;
 
 
 
