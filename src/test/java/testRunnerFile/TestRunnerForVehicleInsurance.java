@@ -94,7 +94,7 @@ public class TestRunnerForVehicleInsurance extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("Regression");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Ramesh Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("Edge");
+                ThreadLocalDriver.getInstance().setDriver("Chrome");
                 driver= ThreadLocalDriver.getInstance().getDriver();
 
             } catch (Exception e) {
@@ -141,7 +141,7 @@ public class TestRunnerForVehicleInsurance extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("Regression");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Ramesh Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("FireFox");
+                ThreadLocalDriver.getInstance().setDriver("Chrome");
                 driver= ThreadLocalDriver.getInstance().getDriver();
                // driver=DriverInitializationManager.getInstance("FireFox","Local").getDriver();
 
@@ -191,7 +191,7 @@ public class TestRunnerForVehicleInsurance extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("Regression");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Ramesh Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("FireFox");
+                ThreadLocalDriver.getInstance().setDriver("Chrome");
                 driver= ThreadLocalDriver.getInstance().getDriver();
 //                driver=DriverInitializationManager.getInstance("Chrome","Local").getDriver();
             } catch (Exception e) {
