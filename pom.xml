@@ -29,36 +29,33 @@
       <artifactId>selenium-java</artifactId>
       <version>4.20.0</version>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-examples</artifactId>
       <version>5.0.0</version>
-    </dependency>
-
-
-
-    <dependency>
+    </dependency>-->
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml-schemas</artifactId>
       <version>4.1.2</version>
-    </dependency>
-    <dependency>
+    </dependency>-->
+    <!--<dependency>
       <groupId>org.apache.xmlbeans</groupId>
       <artifactId>xmlbeans</artifactId>
       <version>5.2.0</version>
-    </dependency>
+    </dependency>-->
 
 
-    <dependency>
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-scratchpad</artifactId>
       <version>5.2.5</version>
-    </dependency>
-    <dependency>
+    </dependency>-->
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
       <version>5.2.5</version>
-    </dependency>
+    </dependency>-->
     <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
     <dependency>
       <groupId>com.aventstack</groupId>
@@ -90,16 +87,30 @@
       <artifactId>slf4j-api</artifactId>
       <version>2.0.13</version>
     </dependency>
+
+    <!--<dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.2.5</version>
+    </dependency>-->
+
+    <!--<dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.1</version>
+    </dependency>-->
+
+
     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 
 
 
-    <dependency>
+    <!--<dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-excelant</artifactId>
       <version>5.0.0</version>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
@@ -112,12 +123,6 @@
       <version>1.6.4</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi-ooxml</artifactId>
-      <version>5.3.0</version>
-    </dependency>
 
   </dependencies>
   <build>
