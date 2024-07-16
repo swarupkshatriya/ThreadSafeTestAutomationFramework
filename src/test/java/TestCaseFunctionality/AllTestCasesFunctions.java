@@ -30,7 +30,6 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
 
     public void TestAutomobile1(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 
-        Actions act=new Actions(driver);
 
             com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
 
@@ -67,7 +66,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
 
     public void TestAutomobile2(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 
-        Actions act=new Actions(driver);
+
         int count=1;
 
             com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
@@ -104,15 +103,11 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
 
     public void TestAutomobile3(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 
-        Actions act=new Actions(driver);
+
         int count=1;
 
             com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         com.clickElement(driver,auto.getMakeComBoBox(),"makeCombo");
         try {
             com.selectByText(driver,auto.getMakeComBoBox(),"combo",strMake);
@@ -146,15 +141,11 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
 
     public void TestAutomobile4(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 
-        Actions act=new Actions(driver);
+
         int count=1;
 
         com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         com.clickElement(driver,auto.getMakeComBoBox(),"makeCombo");
         try {
             com.selectByText(driver,auto.getMakeComBoBox(),"combo",strMake);
@@ -190,7 +181,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
                           String strTitle,String strPassword,String strDay,String strMonth,String strYear,String strFirstName,String strLastName,
                           String strCompany,String strAddress1,String strAddress2,String strCountry,String strState,String strCity,String strZipcode,
                           String strMobileNumber,String strworkbookname,String strsheetName,String strTestCaseName,String strtestdataColumnname,String strPasswordColumn){
-        Actions act=new Actions(driver);
+
 
         List<WebElement> list1=driver.findElements(hp.getTestCases());
         if(!list1.isEmpty()){
@@ -312,11 +303,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         }
         com.javascriptExecutorMethod(driver,acp.getContinueBtn(),"continue button");
         com.clickElement(driver,acp.getContinueBtn(),"continue button");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         list1=driver.findElements(By.xpath("//iframe[@id='aswift_1']"));
         if(!list1.isEmpty()){
             com.switchToFrameID(driver,"aswift_1");
