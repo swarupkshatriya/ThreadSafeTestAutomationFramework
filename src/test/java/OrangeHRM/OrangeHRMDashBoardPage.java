@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class OrangeHRMDashBoardPage {
     public By adminTab=By.xpath("//span[text()='Admin']");
-    public By mandaUser=By.xpath("//p[text()='FirstNameTest LastNameTest']");
+    public By mandaUser=By.xpath("//p[text()='manda user']");
     public By logoutLink=By.xpath("//a[text()='Logout']");
 
     public By getAdminTab() {
