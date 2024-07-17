@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>TestNG:  Regression1</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Regression1</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/3/1</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jul 16 17:22:51 EDT 2024</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (947 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunnerFile.TestRunnerForVehicleInsurance.TestCase4()'><b>TestCase4</b><br>Test class: testRunnerFile.TestRunnerForVehicleInsurance<br>Parameters: org.testng.TestRunner@338ff484</td>
+<td><div><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:186)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:184)
+	... 18 more
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace271816486", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace271816486'><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:186)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:184)
+	... 18 more
+</pre></div></td>
+<td>0</td>
+<td>testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c</td></tr>
+<tr>
+<td title='testRunnerFile.TestRunnerForVehicleInsurance.TestCase2()'><b>TestCase2</b><br>Test class: testRunnerFile.TestRunnerForVehicleInsurance<br>Parameters: org.testng.TestRunner@338ff484</td>
+<td><div><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:89)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:87)
+	... 18 more
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1142830022", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1142830022'><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:87)
+	... 18 more
+</pre></div></td>
+<td>0</td>
+<td>testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c</td></tr>
+<tr>
+<td title='testRunnerFile.TestRunnerForVehicleInsurance.TestCase1()'><b>TestCase1</b><br>Test class: testRunnerFile.TestRunnerForVehicleInsurance<br>Parameters: org.testng.TestRunner@338ff484</td>
+<td><div><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:40)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:38)
+	... 18 more
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace171831809", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace171831809'><pre>java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+	at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+	at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+	at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:38)
+	... 18 more
+</pre></div></td>
+<td>0</td>
+<td>testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunnerFile.TestRunnerForVehicleInsurance.TestCase3()'><b>TestCase3</b><br>Test class: testRunnerFile.TestRunnerForVehicleInsurance</td>
+<td><div><pre>java.lang.Throwable: Method testRunnerFile.TestRunnerForVehicleInsurance.TestCase3() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c depends on not successfully finished methods 
+[testRunnerFile.TestRunnerForVehicleInsurance.TestCase1() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1114009103", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1114009103'><pre>java.lang.Throwable: Method testRunnerFile.TestRunnerForVehicleInsurance.TestCase3() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c depends on not successfully finished methods 
+[testRunnerFile.TestRunnerForVehicleInsurance.TestCase1() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+</pre></div></td>
+<td>0</td>
+<td>testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c</td></tr>
+</table><p>
+</body>
+</html>

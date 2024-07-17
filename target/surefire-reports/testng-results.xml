@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="0" failed="3" skipped="1">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-16T17:22:51 EDT" name="Suite1" finished-at="2024-07-16T17:22:52 EDT" duration-ms="947">
+    <groups>
+    </groups>
+    <test started-at="2024-07-16T17:22:51 EDT" name="Regression1" finished-at="2024-07-16T17:22:52 EDT" duration-ms="947">
+      <class name="testRunnerFile.TestRunnerForVehicleInsurance">
+        <test-method is-config="true" signature="reportGenerate()[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:51 EDT" name="reportGenerate" finished-at="2024-07-16T17:22:51 EDT" duration-ms="190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportGenerate -->
+        <test-method signature="TestCase4(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:51 EDT" name="TestCase4" finished-at="2024-07-16T17:22:52 EDT" duration-ms="900" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@338ff484]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:186)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase4(TestRunnerForVehicleInsurance.java:184)
+... 18 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase4 -->
+        <test-method signature="TestCase2(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:51 EDT" name="TestCase2" finished-at="2024-07-16T17:22:52 EDT" duration-ms="900" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@338ff484]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:89)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase2(TestRunnerForVehicleInsurance.java:87)
+... 18 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase2 -->
+        <test-method signature="TestCase1(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:51 EDT" name="TestCase1" finished-at="2024-07-16T17:22:52 EDT" duration-ms="901" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@338ff484]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:40)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: userdefinedExceptions.TestCaseOrFlagNotFoundException: Either Test Case Name is not matching or Flag is not set as Y
+at testdatareader.TestDataReader.checkTestDataFile(TestDataReader.java:139)
+at testdatareader.TestDataReader.readTestData(TestDataReader.java:64)
+at testRunnerFile.TestRunnerForVehicleInsurance.TestCase1(TestRunnerForVehicleInsurance.java:38)
+... 18 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase1 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:52 EDT" name="tearDown" finished-at="2024-07-16T17:22:52 EDT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TestCase4 status=FAILURE method=TestRunnerForVehicleInsurance.TestCase4(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:52 EDT" name="tearDown" finished-at="2024-07-16T17:22:52 EDT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TestCase2 status=FAILURE method=TestRunnerForVehicleInsurance.TestCase2(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:52 EDT" name="tearDown" finished-at="2024-07-16T17:22:52 EDT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TestCase1 status=FAILURE method=TestRunnerForVehicleInsurance.TestCase1(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="TestCase3(org.testng.ITestContext)[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:52 EDT" name="TestCase3" finished-at="2024-07-16T17:22:52 EDT" depends-on-methods="testRunnerFile.TestRunnerForVehicleInsurance.TestCase1" duration-ms="1" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method testRunnerFile.TestRunnerForVehicleInsurance.TestCase3() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c depends on not successfully finished methods 
+[testRunnerFile.TestRunnerForVehicleInsurance.TestCase1() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method testRunnerFile.TestRunnerForVehicleInsurance.TestCase3() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c depends on not successfully finished methods 
+[testRunnerFile.TestRunnerForVehicleInsurance.TestCase1() on instance testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase3 -->
+        <test-method is-config="true" signature="closeReport()[pri:0, instance:testRunnerFile.TestRunnerForVehicleInsurance@8f4ea7c]" started-at="2024-07-16T17:22:52 EDT" name="closeReport" finished-at="2024-07-16T17:22:52 EDT" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeReport -->
+      </class> <!-- testRunnerFile.TestRunnerForVehicleInsurance -->
+    </test> <!-- Regression1 -->
+  </suite> <!-- Suite1 -->
+</testng-results>

@@ -38,7 +38,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
         com.clickElement(driver,olp.getLoginButton(),"Login Button");
         com.clickElement(driver,odp.getAdminTab(),"Admin link");
-        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getProfilePic(),"MandaUser link");
         com.clickElement(driver,odp.getLogoutLink(),"Logout link");
     }
 
@@ -49,7 +49,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
         com.clickElement(driver,olp.getLoginButton(),"Login Button");
         com.clickElement(driver,odp.getAdminTab(),"Admin link");
-        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getProfilePic(),"MandaUser link");
         com.clickElement(driver,odp.getLogoutLink(),"Logout link");
     }
 
@@ -60,7 +60,7 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
         com.clickElement(driver,olp.getLoginButton(),"Login Button");
         com.clickElement(driver,odp.getAdminTab(),"Admin link");
-        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getProfilePic(),"MandaUser link");
         com.clickElement(driver,odp.getLogoutLink(),"Logout link");
     }
 
