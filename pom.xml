@@ -209,7 +209,7 @@
         <version>3.2.2</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>OrangeHRM.xml</suiteXmlFile>
+            <suiteXmlFile>VehicleInsuranceApplicationTestNG.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

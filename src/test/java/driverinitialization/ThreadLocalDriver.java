@@ -35,11 +35,11 @@ public class ThreadLocalDriver {
     public synchronized void setDriver(String Browser) throws MalformedURLException {
         switch (Browser){
             case "Chrome": {
-               // System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\DriverFolder\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\DriverFolder\\chromedriver.exe");
                 ChromeOptions option = new ChromeOptions();
                 option.addArguments("--start-maximized");
-                driver.set(new ChromeDriver(option));
-                // driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+               // driver.set(new ChromeDriver(option));
+                 driver.set(new RemoteWebDriver(new URL(remoteURL),option));
                 break;
             }
             case "Edge": {
@@ -56,8 +56,8 @@ public class ThreadLocalDriver {
 
 
                 option.addArguments("--start-maximized");
-               // driver.set(new RemoteWebDriver(new URL(remoteURL),option));
-                driver.set(new EdgeDriver(option));
+                driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+              //  driver.set(new EdgeDriver(option));
                 break;
             }
             case "FireFox": {
@@ -68,8 +68,8 @@ public class ThreadLocalDriver {
                 //  t3.start();
                 //  options.addArguments("--headless");
                 //   options.addArguments("--Private");
-               // driver.set(new RemoteWebDriver(new URL(remoteURL),option));
-                driver.set(new FirefoxDriver(option));
+                driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+               // driver.set(new FirefoxDriver(option));
                 break;
             }
         }
