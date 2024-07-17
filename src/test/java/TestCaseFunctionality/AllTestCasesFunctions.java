@@ -1,6 +1,8 @@
 package TestCaseFunctionality;
 
 import AutomationExcercise.*;
+import OrangeHRM.OrangeHRMDashBoardPage;
+import OrangeHRM.OrangeHRMLoginPage;
 import VehicalInsuranceApplication.AutomobileClass;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import commonLibrarymethods.CommonResuableMethods;
@@ -27,6 +29,40 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
     AccountCreatePage acp=new AccountCreatePage();
     AccountDeletedPage adp=new AccountDeletedPage();
     CommonResuableMethods com=new CommonResuableMethods();
+    OrangeHRMLoginPage olp= new OrangeHRMLoginPage();
+    OrangeHRMDashBoardPage odp=new OrangeHRMDashBoardPage();
+    public void TestOranageHRM1(WebDriver driver,String strUserName,String strUserPassword ){
+        com.clickElement(driver,olp.getUserNameTextField(),"Login Button");
+        com.type(driver,olp.getUserNameTextField(),"Username",strUserName);
+        com.clickElement(driver,olp.getUserPasswordTextField(),"Login Button");
+        com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
+        com.clickElement(driver,olp.getLoginButton(),"Login Button");
+        com.clickElement(driver,odp.getAdminTab(),"Admin link");
+        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getLogoutLink(),"Logout link");
+    }
+
+    public void TestOranageHRM2(WebDriver driver,String strUserName,String strUserPassword ){
+        com.clickElement(driver,olp.getUserNameTextField(),"Login Button");
+        com.type(driver,olp.getUserNameTextField(),"Username",strUserName);
+        com.clickElement(driver,olp.getUserPasswordTextField(),"Login Button");
+        com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
+        com.clickElement(driver,olp.getLoginButton(),"Login Button");
+        com.clickElement(driver,odp.getAdminTab(),"Admin link");
+        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getLogoutLink(),"Logout link");
+    }
+
+    public void TestOranageHRM3(WebDriver driver,String strUserName,String strUserPassword ){
+        com.clickElement(driver,olp.getUserNameTextField(),"Login Button");
+        com.type(driver,olp.getUserNameTextField(),"Username",strUserName);
+        com.clickElement(driver,olp.getUserPasswordTextField(),"Login Button");
+        com.type(driver,olp.getUserPasswordTextField(),"Password",strUserPassword);
+        com.clickElement(driver,olp.getLoginButton(),"Login Button");
+        com.clickElement(driver,odp.getAdminTab(),"Admin link");
+        com.clickElement(driver,odp.getMandaUser(),"MandaUser link");
+        com.clickElement(driver,odp.getLogoutLink(),"Logout link");
+    }
 
     public void TestAutomobile1(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 

@@ -1,0 +1,21 @@
+package OrangeHRM;
+
+import org.openqa.selenium.By;
+
+public class OrangeHRMDashBoardPage {
+    public By adminTab=By.xpath("//span[text()='Admin']");
+    public By mandaUser=By.xpath("//p[text()='FirstNameTest LastNameTest']");
+    public By logoutLink=By.xpath("//a[text()='Logout']");
+
+    public By getAdminTab() {
+        return adminTab;
+    }
+
+    public By getMandaUser() {
+        return mandaUser;
+    }
+
+    public By getLogoutLink() {
+        return logoutLink;
+    }
+}
