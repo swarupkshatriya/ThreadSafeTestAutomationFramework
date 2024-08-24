@@ -4,9 +4,14 @@ import AutomationExcercise.*;
 import OrangeHRM.OrangeHRMDashBoardPage;
 import OrangeHRM.OrangeHRMLoginPage;
 import VehicalInsuranceApplication.AutomobileClass;
+import VehicalInsuranceApplication.Camper;
+import VehicalInsuranceApplication.MotorCycle;
+import VehicalInsuranceApplication.Truck;
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
 import commonLibrarymethods.CommonResuableMethods;
 import extentreport.ExtentTestManager;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -14,15 +19,26 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import testRunnerFile.ExtentReportGenerationClass;
 import testdatareader.TestDataReader;
+import userdefinedExceptions.CheckboxOptionIsNotAvailable;
 import userdefinedExceptions.DataIsNotVisible;
+import userdefinedExceptions.RadioButtonOptionIsNotAvailable;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.Key;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 public class AllTestCasesFunctions extends ExtentReportGenerationClass {
     AutomobileClass auto=new AutomobileClass();
+    Truck truck=new Truck();
+    MotorCycle motorCycle=new MotorCycle();
+    Camper camper=new Camper();
+
     HomePage hp=new HomePage();
     LoginPage lp=new LoginPage();
     SignUpPage sp=new SignUpPage();
@@ -64,12 +80,17 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         com.clickElement(driver,odp.getLogoutLink(),"Logout link");
     }
 
-    public void TestAutomobile1(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
+    public void TestAutomobile1(WebDriver driver,String strMake,String strEngPer,String strDOM,
+                                String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,
+                                String strAnualMilege,String strFirstname,String strLastName,String strDateOfBirth,
+                                String strGender,String strStreetAddress,String strCountry,String strZipCode,
+                                String strCity,String strOccupation,String strHobbies,String strWebSite,
+                                String strFileName,String strInsuranceSum,String strMeritRating,String strDamageInsurance,String strOptionalProduct,
+                                String strCourtesyCar,String strPriceOption,String strEmail,String strPhone,String strUsername,String strPassword,
+                                String strConfirmPassword,String strComments) throws CheckboxOptionIsNotAvailable, RadioButtonOptionIsNotAvailable {
 
 
-            com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
-
-
+        com.clickElement(driver,auto.getAutomobileLink(),"automobileLink");
         com.clickElement(driver,auto.getMakeComBoBox(),"makeCombo");
         try {
             com.selectByText(driver,auto.getMakeComBoBox(),"combo",strMake);
@@ -96,9 +117,689 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         com.type(driver,auto.getListPrice(),"listprice",strListPrice);
         com.type(driver,auto.getLicensePlateNumber(),"licenseplatenumber",strLicensePlate);
         com.type(driver,auto.getAnualMilege(),"Anual Milenge",strAnualMilege);
+        com.clickElement(driver,auto.getNextButton(),"Next Button");
+        com.type(driver,auto.getFirstNameTextField(),"FirstName",strFirstname);
+        com.type(driver,auto.getLastNameTextField(),"LastName",strLastName);
+        com.type(driver,auto.getDateOfBirthTextField(),"Date Of Birth",strDateOfBirth);
+        if(strGender.equalsIgnoreCase("Male")){
+            com.clickElement(driver,auto.getGenderMaleRadioButton(),"Gender Male radio Button");
+        }else{
+            com.clickElement(driver,auto.getGenFemaleRadioButton(),"Gender Female radio Button");
+        }
+        com.type(driver,auto.getStressAddressTextField(),"Street Address",strStreetAddress);
+        com.clickElement(driver,auto.getCountrySelectDropDown(),"Country DropDown box");
+        try {
+            com.selectByText(driver,auto.getCountrySelectDropDown(),"County DropDown Box",strCountry);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,auto.getZipCode(),"Zip Code",strZipCode);
+        com.type(driver,auto.getCityTextField(),"City",strCity);
+        com.clickElement(driver,auto.getOccupationDropDown(),"Occupation DropDown box");
+        try {
+            com.selectByText(driver,auto.getOccupationDropDown(),"Occupation DropDown Box",strOccupation);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        switch (strHobbies.toLowerCase()){
+            case "speeding":
+                com.clickElement(driver,auto.getSpeeadingCheckBox(),"Speeding check Box");
+                break;
+            case "bungee jumping":
+                com.clickElement(driver,auto.getBungeeJumpingCheckBox(),"bungee jumping check Box");
+                break;
+            case "cliff driving":
+                com.clickElement(driver,auto.getCliffDivingCheckBox(),"Cliff Diving check Box");
+                break;
+            case "skydiving":
+                com.clickElement(driver,auto.getSkydivingCheckBox(),"sky Diving  Box");
+                break;
+            case "other":
+                com.clickElement(driver,auto.getOtherCheckBox(),"other check Box");
+                break;
+            default:
+                    throw new CheckboxOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.type(driver,auto.getWebSiteTextfield(),"WebSite",strWebSite);
+//        com.clickElement(driver,auto.getOpenButton(),"Open Button");
+//        File uploadFile = new File(System.getProperty("user.dir")+"/FileUpload/"+strFileName);
+//        WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
+//        fileInput.sendKeys(uploadFile.getAbsolutePath());
+//        driver.findElement(By.id("file-submit")).click();
+//
+//        WebElement fileName = driver.findElement(By.id("uploaded-files"));
+//        Assertions.assertEquals("selenium-snapshot.png", fileName.getText());
+
+        com.clickElement(driver,auto.getNextbuttonProductData(),"Next Button");
+        Date date=new Date();
+
+        SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
+
+        date= DateUtils.addDays(date,50);
+       String advancedDate= dateFormat.format(date);
+       com.type(driver,auto.getProductdataStartDate(),"Start Date",advancedDate);
+
+       com.clickElement(driver,auto.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown ");
+       try {
+           com.selectByText(driver,auto.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown",strInsuranceSum);
+       }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+       }
+
+        com.clickElement(driver,auto.getProductDataMeritRating(),"Merit Rating DropDown ");
+        try {
+            com.selectByText(driver,auto.getProductDataMeritRating(),"Merit Rating DropDown DropDown",strMeritRating);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        com.clickElement(driver,auto.getProductDataDamageInsurance(),"DamageInsurance DropDown ");
+        try {
+            com.selectByText(driver,auto.getProductDataDamageInsurance(),"DamageInsurance DropDown",strDamageInsurance);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        switch (strOptionalProduct.toLowerCase()){
+            case "euro protection":
+                com.clickElement(driver,auto.getProductDataOptionalProudctsEuroProtectionCheckBox(),"Euro Protection check Box");
+                break;
+            case "legal defense insurance":
+                com.clickElement(driver,auto.getProductDataLegalDefenseInsuranceCheckBox(),"legal defense Insurance check Box");
+                break;
+
+            default:
+                throw new CheckboxOptionIsNotAvailable("Optional Product value you provided is not available in application");
+        }
+
+        com.clickElement(driver,auto.getProductDataCurtesyCarDropDown(),"CurtsyCar DropDown ");
+        try {
+            com.selectByText(driver,auto.getProductDataCurtesyCarDropDown(),"CurtsyCar DropDown",strCourtesyCar);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.javascriptExecutorMethod(driver,auto.getProductDataNextSelectPriceOptionButton(),"Next button");
+        com.clickElement(driver,auto.getProductDataNextSelectPriceOptionButton(),"Next Button ");
+
+        switch (strPriceOption.toLowerCase()){
+            case "silver":
+                com.clickElement(driver,auto.getSelectPriceOptionSilverRadioButton(),"silver radio button ");
+                break;
+            case "gold":
+                com.clickElement(driver,auto.getSelectPriceOptionGoldRadioButton(),"Gold Radio button ");
+                break;
+            case "platinum":
+                com.clickElement(driver,auto.getSelectPriceOptionPlatinumRadioButton(),"Platinum Radio Button ");
+                break;
+            case "ultimate":
+                com.clickElement(driver,auto.getSelectPriceOptionUltimateRadioButton(),"ultimate radio button");
+                break;
+            default:
+                throw new RadioButtonOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.clickElement(driver,auto.getSelectPriceOptionNextButton(),"Next Button ");
+        com.type(driver,auto.getSendQuoteEmailTextField(),"Email ",strEmail);
+        com.type(driver,auto.getSendQuotePhoneTextField(),"Phone ",strPhone);
+        com.type(driver,auto.getSendQuoteUsernameTextField(),"Username ",strUsername);
+        com.type(driver,auto.getSendQuotePasswordTextField(),"Password  ",strPassword);
+        com.type(driver,auto.getSendQuoteConfirmPasswordTextField(),"Confirm Password  ",strConfirmPassword);
+        com.type(driver,auto.getSendQuoteCommentTextArea(),"Comments  ",strComments);
+        com.clickElement(driver,auto.getSendQuoteSendQuoteButton(),"Send Button ");
+        if(com.isVisibleOnPage(driver,auto.getSendingEmailNotification())){
+            String emailNotificationMessage=driver.findElement(auto.getSendingEmailNotification()).getText();
+            if(emailNotificationMessage.equalsIgnoreCase("Sending e-mail success!")){
+                com.clickElement(driver,auto.getOkButton(),"OK Button ");
+                Assert.assertTrue(true,"Sending e-mail success!");
+                ExtentTestManager.getInstance(test).getTest().log(Status.PASS,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Available "));
+            }else {
+                ExtentTestManager.getInstance(test).getTest().log(Status.FAIL,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Not Available "));
+                Assert.fail("Sending e-mail success! is not available ");
+            }
+        }
+
 
 
     }
+    public void TestTruck(WebDriver driver,String strMake,String strEngPer,String strDOM,
+                                String strNoSeats,String strFuelType,String strPaylaod,String strTotalWeight,String strListPrice,String strLicensePlate,
+                                String strAnualMilege,String strFirstname,String strLastName,String strDateOfBirth,
+                                String strGender,String strStreetAddress,String strCountry,String strZipCode,
+                                String strCity,String strOccupation,String strHobbies,String strWebSite,
+                                String strFileName,String strInsuranceSum,String strDamageInsurance,String strOptionalProduct,
+                                String strPriceOption,String strEmail,String strPhone,String strUsername,String strPassword,
+                                String strConfirmPassword,String strComments) throws CheckboxOptionIsNotAvailable, RadioButtonOptionIsNotAvailable {
+
+
+        com.clickElement(driver,truck.getTruckLink(),"truck Link");
+        com.clickElement(driver,truck.getMakeComBoBox(),"makeCombo");
+        try {
+            com.selectByText(driver,truck.getMakeComBoBox(),"combo",strMake);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,truck.getEnginePerformanceKW(),"EnginePEr",strEngPer);
+        com.type(driver,truck.getDateOfManufacturing(),"dateofmanu",strDOM);
+
+        com.clickElement(driver,truck.getSelectNumberOfSeats(),"seat");
+        try {
+            com.selectByText(driver,truck.getSelectNumberOfSeats(),"combo",strNoSeats);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        com.clickElement(driver,truck.getFuelType(),"Fuel Type");
+        try {
+            com.selectByText(driver,truck.getFuelType(),"combo",strFuelType);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,truck.getPayLoad(),"Pay Load ",strPaylaod);
+        com.type(driver,truck.getTotalWeight(),"Total Weight ",strTotalWeight);
+
+        com.type(driver,truck.getListPrice(),"listprice",strListPrice);
+        com.type(driver,truck.getLicensePlateNumber(),"licenseplatenumber",strLicensePlate);
+        com.type(driver,truck.getAnualMilege(),"Anual Milenge",strAnualMilege);
+        com.clickElement(driver,truck.getNextButton(),"Next Button");
+        com.type(driver,truck.getFirstNameTextField(),"FirstName",strFirstname);
+        com.type(driver,truck.getLastNameTextField(),"LastName",strLastName);
+        com.type(driver,truck.getDateOfBirthTextField(),"Date Of Birth",strDateOfBirth);
+        if(strGender.equalsIgnoreCase("Male")){
+            com.clickElement(driver,truck.getGenderMaleRadioButton(),"Gender Male radio Button");
+        }else{
+            com.clickElement(driver,truck.getGenFemaleRadioButton(),"Gender Female radio Button");
+        }
+        com.type(driver,truck.getStressAddressTextField(),"Street Address",strStreetAddress);
+        com.clickElement(driver,truck.getCountrySelectDropDown(),"Country DropDown box");
+        try {
+            com.selectByText(driver,truck.getCountrySelectDropDown(),"County DropDown Box",strCountry);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,truck.getZipCode(),"Zip Code",strZipCode);
+        com.type(driver,truck.getCityTextField(),"City",strCity);
+        com.clickElement(driver,truck.getOccupationDropDown(),"Occupation DropDown box");
+        try {
+            com.selectByText(driver,truck.getOccupationDropDown(),"Occupation DropDown Box",strOccupation);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        switch (strHobbies.toLowerCase()){
+            case "speeding":
+                com.clickElement(driver,truck.getSpeeadingCheckBox(),"Speeding check Box");
+                break;
+            case "bungee jumping":
+                com.clickElement(driver,truck.getBungeeJumpingCheckBox(),"bungee jumping check Box");
+                break;
+            case "cliff driving":
+                com.clickElement(driver,truck.getCliffDivingCheckBox(),"Cliff Diving check Box");
+                break;
+            case "skydiving":
+                com.clickElement(driver,truck.getSkydivingCheckBox(),"sky Diving  Box");
+                break;
+            case "other":
+                com.clickElement(driver,truck.getOtherCheckBox(),"other check Box");
+                break;
+            default:
+                throw new CheckboxOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.type(driver,truck.getWebSiteTextfield(),"WebSite",strWebSite);
+//        com.clickElement(driver,auto.getOpenButton(),"Open Button");
+//        File uploadFile = new File(System.getProperty("user.dir")+"/FileUpload/"+strFileName);
+//        WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
+//        fileInput.sendKeys(uploadFile.getAbsolutePath());
+//        driver.findElement(By.id("file-submit")).click();
+//
+//        WebElement fileName = driver.findElement(By.id("uploaded-files"));
+//        Assertions.assertEquals("selenium-snapshot.png", fileName.getText());
+
+        com.clickElement(driver,truck.getNextbuttonProductData(),"Next Button");
+        Date date=new Date();
+
+        SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
+
+        date= DateUtils.addDays(date,50);
+        String advancedDate= dateFormat.format(date);
+        com.type(driver,truck.getProductdataStartDate(),"Start Date",advancedDate);
+
+        com.clickElement(driver,truck.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown ");
+        try {
+            com.selectByText(driver,truck.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown",strInsuranceSum);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        com.clickElement(driver,truck.getProductDataDamageInsurance(),"DamageInsurance DropDown ");
+        try {
+            com.selectByText(driver,truck.getProductDataDamageInsurance(),"DamageInsurance DropDown",strDamageInsurance);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        switch (strOptionalProduct.toLowerCase()){
+            case "euro protection":
+                com.clickElement(driver,truck.getProductDataOptionalProudctsEuroProtectionCheckBox(),"Euro Protection check Box");
+                break;
+            case "legal defense insurance":
+                com.clickElement(driver,truck.getProductDataLegalDefenseInsuranceCheckBox(),"legal defense Insurance check Box");
+                break;
+
+            default:
+                throw new CheckboxOptionIsNotAvailable("Optional Product value you provided is not available in application");
+        }
+
+
+        com.javascriptExecutorMethod(driver,truck.getProductDataNextSelectPriceOptionButton(),"Next button");
+        com.clickElement(driver,truck.getProductDataNextSelectPriceOptionButton(),"Next Button ");
+
+        switch (strPriceOption.toLowerCase()){
+            case "silver":
+                com.clickElement(driver,truck.getSelectPriceOptionSilverRadioButton(),"silver radio button ");
+                break;
+            case "gold":
+                com.clickElement(driver,truck.getSelectPriceOptionGoldRadioButton(),"Gold Radio button ");
+                break;
+            case "platinum":
+                com.clickElement(driver,truck.getSelectPriceOptionPlatinumRadioButton(),"Platinum Radio Button ");
+                break;
+            case "ultimate":
+                com.clickElement(driver,truck.getSelectPriceOptionUltimateRadioButton(),"ultimate radio button");
+                break;
+            default:
+                throw new RadioButtonOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.clickElement(driver,truck.getSelectPriceOptionNextButton(),"Next Button ");
+        com.type(driver,truck.getSendQuoteEmailTextField(),"Email ",strEmail);
+        com.type(driver,truck.getSendQuotePhoneTextField(),"Phone ",strPhone);
+        com.type(driver,truck.getSendQuoteUsernameTextField(),"Username ",strUsername);
+        com.type(driver,truck.getSendQuotePasswordTextField(),"Password  ",strPassword);
+        com.type(driver,truck.getSendQuoteConfirmPasswordTextField(),"Confirm Password  ",strConfirmPassword);
+        com.type(driver,truck.getSendQuoteCommentTextArea(),"Comments  ",strComments);
+        com.clickElement(driver,truck.getSendQuoteSendQuoteButton(),"Send Button ");
+        if(com.isVisibleOnPage(driver,truck.getSendingEmailNotification())){
+            String emailNotificationMessage=driver.findElement(truck.getSendingEmailNotification()).getText();
+            if(emailNotificationMessage.equalsIgnoreCase("Sending e-mail success!")){
+                com.clickElement(driver,truck.getOkButton(),"OK Button ");
+                Assert.assertTrue(true,"Sending e-mail success!");
+                ExtentTestManager.getInstance(test).getTest().log(Status.PASS,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Available "));
+            }else {
+                ExtentTestManager.getInstance(test).getTest().log(Status.FAIL,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Not Available "));
+                Assert.fail("Sending e-mail success! is not available ");
+            }
+        }
+
+
+
+    }
+
+
+
+    public void TestMotorCycle(WebDriver driver,String strMake,String strModel,String strCylinderCapacity,String strEngPer,String strDOM,
+                          String strNoSeats,String strListPrice,
+                          String strAnualMilege,String strFirstname,String strLastName,String strDateOfBirth,
+                          String strGender,String strStreetAddress,String strCountry,String strZipCode,
+                          String strCity,String strOccupation,String strHobbies,String strWebSite,
+                          String strFileName,String strInsuranceSum,String strDamageInsurance,String strOptionalProduct,
+                          String strPriceOption,String strEmail,String strPhone,String strUsername,String strPassword,
+                          String strConfirmPassword,String strComments) throws CheckboxOptionIsNotAvailable, RadioButtonOptionIsNotAvailable {
+
+
+        com.clickElement(driver,motorCycle.getMotorCycleLink(),"MotorCycle Link");
+        com.clickElement(driver,motorCycle.getMakeComBoBox(),"makeCombo");
+        try {
+            com.selectByText(driver,motorCycle.getMakeComBoBox(),"combo",strMake);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        com.clickElement(driver,motorCycle.getModel(),"Model Combo ");
+        try {
+            com.selectByText(driver,motorCycle.getModel(),"Model dropdown ",strModel);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,motorCycle.getCylinderCapacity(),"Cyclinder Capacity ",strCylinderCapacity);
+        com.type(driver,motorCycle.getEnginePerformanceKW(),"EnginePEr",strEngPer);
+        com.type(driver,motorCycle.getDateOfManufacturing(),"dateofmanu",strDOM);
+
+        com.clickElement(driver,motorCycle.getNumberOfSeatsMotorCycle(),"seat");
+        try {
+            com.selectByText(driver,motorCycle.getNumberOfSeatsMotorCycle(),"combo",strNoSeats);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        com.type(driver,motorCycle.getListPrice(),"listprice",strListPrice);
+
+        com.type(driver,motorCycle.getAnualMilege(),"Anual Milenge",strAnualMilege);
+        com.clickElement(driver,motorCycle.getNextButton(),"Next Button");
+        com.type(driver,motorCycle.getFirstNameTextField(),"FirstName",strFirstname);
+        com.type(driver,motorCycle.getLastNameTextField(),"LastName",strLastName);
+        com.type(driver,motorCycle.getDateOfBirthTextField(),"Date Of Birth",strDateOfBirth);
+        if(strGender.equalsIgnoreCase("Male")){
+            com.clickElement(driver,motorCycle.getGenderMaleRadioButton(),"Gender Male radio Button");
+        }else{
+            com.clickElement(driver,motorCycle.getGenFemaleRadioButton(),"Gender Female radio Button");
+        }
+        com.type(driver,motorCycle.getStressAddressTextField(),"Street Address",strStreetAddress);
+        com.clickElement(driver,motorCycle.getCountrySelectDropDown(),"Country DropDown box");
+        try {
+            com.selectByText(driver,motorCycle.getCountrySelectDropDown(),"County DropDown Box",strCountry);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,motorCycle.getZipCode(),"Zip Code",strZipCode);
+        com.type(driver,motorCycle.getCityTextField(),"City",strCity);
+        com.clickElement(driver,motorCycle.getOccupationDropDown(),"Occupation DropDown box");
+        try {
+            com.selectByText(driver,motorCycle.getOccupationDropDown(),"Occupation DropDown Box",strOccupation);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        switch (strHobbies.toLowerCase()){
+            case "speeding":
+                com.clickElement(driver,motorCycle.getSpeeadingCheckBox(),"Speeding check Box");
+                break;
+            case "bungee jumping":
+                com.clickElement(driver,motorCycle.getBungeeJumpingCheckBox(),"bungee jumping check Box");
+                break;
+            case "cliff driving":
+                com.clickElement(driver,motorCycle.getCliffDivingCheckBox(),"Cliff Diving check Box");
+                break;
+            case "skydiving":
+                com.clickElement(driver,motorCycle.getSkydivingCheckBox(),"sky Diving  Box");
+                break;
+            case "other":
+                com.clickElement(driver,motorCycle.getOtherCheckBox(),"other check Box");
+                break;
+            default:
+                throw new CheckboxOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.type(driver,motorCycle.getWebSiteTextfield(),"WebSite",strWebSite);
+//        com.clickElement(driver,auto.getOpenButton(),"Open Button");
+//        File uploadFile = new File(System.getProperty("user.dir")+"/FileUpload/"+strFileName);
+//        WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
+//        fileInput.sendKeys(uploadFile.getAbsolutePath());
+//        driver.findElement(By.id("file-submit")).click();
+//
+//        WebElement fileName = driver.findElement(By.id("uploaded-files"));
+//        Assertions.assertEquals("selenium-snapshot.png", fileName.getText());
+
+        com.clickElement(driver,motorCycle.getNextbuttonProductData(),"Next Button");
+        Date date=new Date();
+
+        SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
+
+        date= DateUtils.addDays(date,50);
+        String advancedDate= dateFormat.format(date);
+        com.type(driver,motorCycle.getProductdataStartDate(),"Start Date",advancedDate);
+
+        com.clickElement(driver,motorCycle.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown ");
+        try {
+            com.selectByText(driver,motorCycle.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown",strInsuranceSum);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        com.clickElement(driver,motorCycle.getProductDataDamageInsurance(),"DamageInsurance DropDown ");
+        try {
+            com.selectByText(driver,motorCycle.getProductDataDamageInsurance(),"DamageInsurance DropDown",strDamageInsurance);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        switch (strOptionalProduct.toLowerCase()){
+            case "euro protection":
+                com.clickElement(driver,motorCycle.getProductDataOptionalProudctsEuroProtectionCheckBox(),"Euro Protection check Box");
+                break;
+            case "legal defense insurance":
+                com.clickElement(driver,motorCycle.getProductDataLegalDefenseInsuranceCheckBox(),"legal defense Insurance check Box");
+                break;
+
+            default:
+                throw new CheckboxOptionIsNotAvailable("Optional Product value you provided is not available in application");
+        }
+
+
+        com.javascriptExecutorMethod(driver,motorCycle.getProductDataNextSelectPriceOptionButton(),"Next button");
+        com.clickElement(driver,motorCycle.getProductDataNextSelectPriceOptionButton(),"Next Button ");
+
+        switch (strPriceOption.toLowerCase()){
+            case "silver":
+                com.clickElement(driver,motorCycle.getSelectPriceOptionSilverRadioButton(),"silver radio button ");
+                break;
+            case "gold":
+                com.clickElement(driver,motorCycle.getSelectPriceOptionGoldRadioButton(),"Gold Radio button ");
+                break;
+            case "platinum":
+                com.clickElement(driver,motorCycle.getSelectPriceOptionPlatinumRadioButton(),"Platinum Radio Button ");
+                break;
+            case "ultimate":
+                com.clickElement(driver,motorCycle.getSelectPriceOptionUltimateRadioButton(),"ultimate radio button");
+                break;
+            default:
+                throw new RadioButtonOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.clickElement(driver,motorCycle.getSelectPriceOptionNextButton(),"Next Button ");
+        com.type(driver,motorCycle.getSendQuoteEmailTextField(),"Email ",strEmail);
+        com.type(driver,motorCycle.getSendQuotePhoneTextField(),"Phone ",strPhone);
+        com.type(driver,motorCycle.getSendQuoteUsernameTextField(),"Username ",strUsername);
+        com.type(driver,motorCycle.getSendQuotePasswordTextField(),"Password  ",strPassword);
+        com.type(driver,motorCycle.getSendQuoteConfirmPasswordTextField(),"Confirm Password  ",strConfirmPassword);
+        com.type(driver,motorCycle.getSendQuoteCommentTextArea(),"Comments  ",strComments);
+        com.clickElement(driver,motorCycle.getSendQuoteSendQuoteButton(),"Send Button ");
+        if(com.isVisibleOnPage(driver,motorCycle.getSendingEmailNotification())){
+            String emailNotificationMessage=driver.findElement(motorCycle.getSendingEmailNotification()).getText();
+            if(emailNotificationMessage.equalsIgnoreCase("Sending e-mail success!")){
+                com.clickElement(driver,motorCycle.getOkButton(),"OK Button ");
+                Assert.assertTrue(true,"Sending e-mail success!");
+                ExtentTestManager.getInstance(test).getTest().log(Status.PASS,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Available "));
+            }else {
+                ExtentTestManager.getInstance(test).getTest().log(Status.FAIL,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Not Available "));
+                Assert.fail("Sending e-mail success! is not available ");
+            }
+        }
+
+
+
+    }
+
+
+    public void TestCamper(WebDriver driver,String strMake,String strEngPer,String strDOM,
+                          String strNoSeats,String strRightHandDrive,String strFuelType,String strPaylaod,String strTotalWeight,String strListPrice,String strLicensePlate,
+                          String strAnualMilege,String strFirstname,String strLastName,String strDateOfBirth,
+                          String strGender,String strStreetAddress,String strCountry,String strZipCode,
+                          String strCity,String strOccupation,String strHobbies,String strWebSite,
+                          String strFileName,String strInsuranceSum,String strDamageInsurance,String strOptionalProduct,
+                          String strPriceOption,String strEmail,String strPhone,String strUsername,String strPassword,
+                          String strConfirmPassword,String strComments) throws CheckboxOptionIsNotAvailable, RadioButtonOptionIsNotAvailable {
+
+
+        com.clickElement(driver,camper.getCamperLink(),"camper Link");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        com.clickElement(driver,camper.getMakeComBoBox(),"makeCombo");
+        try {
+            com.javascriptExecutorMethod(driver,camper.getMakeComBoBox(),"makeCombo");
+            com.selectByText(driver,camper.getMakeComBoBox(),"combo",strMake);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,camper.getEnginePerformanceKW(),"EnginePEr",strEngPer);
+        com.type(driver,camper.getDateOfManufacturing(),"dateofmanu",strDOM);
+
+        com.clickElement(driver,camper.getSelectNumberOfSeats(),"seat");
+        try {
+            com.selectByText(driver,camper.getSelectNumberOfSeats(),"combo",strNoSeats);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        switch (strRightHandDrive.toLowerCase()){
+            case "yes":
+                com.clickElement(driver,camper.getRightHadDriverYesRadioButton(),"Euro Protection check Box");
+                break;
+            case "no":
+                com.clickElement(driver,camper.getRightHandDriverNoRadioButton(),"legal defense Insurance check Box");
+                break;
+
+            default:
+                throw new RadioButtonOptionIsNotAvailable("Right Hand Drive value you provided is not available in application");
+        }
+
+        com.clickElement(driver,camper.getFuelType(),"Fuel Type");
+        try {
+            com.selectByText(driver,camper.getFuelType(),"combo",strFuelType);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,camper.getPayLoad(),"Pay Load ",strPaylaod);
+        com.type(driver,camper.getTotalWeight(),"Total Weight ",strTotalWeight);
+
+        com.type(driver,camper.getListPrice(),"listprice",strListPrice);
+        com.type(driver,camper.getLicensePlateNumber(),"licenseplatenumber",strLicensePlate);
+        com.type(driver,camper.getAnualMilege(),"Anual Milenge",strAnualMilege);
+        com.clickElement(driver,camper.getNextButton(),"Next Button");
+        com.type(driver,camper.getFirstNameTextField(),"FirstName",strFirstname);
+        com.type(driver,camper.getLastNameTextField(),"LastName",strLastName);
+        com.type(driver,camper.getDateOfBirthTextField(),"Date Of Birth",strDateOfBirth);
+        if(strGender.equalsIgnoreCase("Male")){
+            com.clickElement(driver,camper.getGenderMaleRadioButton(),"Gender Male radio Button");
+        }else{
+            com.clickElement(driver,camper.getGenFemaleRadioButton(),"Gender Female radio Button");
+        }
+        com.type(driver,camper.getStressAddressTextField(),"Street Address",strStreetAddress);
+        com.clickElement(driver,camper.getCountrySelectDropDown(),"Country DropDown box");
+        try {
+            com.selectByText(driver,camper.getCountrySelectDropDown(),"County DropDown Box",strCountry);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        com.type(driver,camper.getZipCode(),"Zip Code",strZipCode);
+        com.type(driver,camper.getCityTextField(),"City",strCity);
+        com.clickElement(driver,camper.getOccupationDropDown(),"Occupation DropDown box");
+        try {
+            com.selectByText(driver,camper.getOccupationDropDown(),"Occupation DropDown Box",strOccupation);
+        } catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+        switch (strHobbies.toLowerCase()){
+            case "speeding":
+                com.clickElement(driver,camper.getSpeeadingCheckBox(),"Speeding check Box");
+                break;
+            case "bungee jumping":
+                com.clickElement(driver,camper.getBungeeJumpingCheckBox(),"bungee jumping check Box");
+                break;
+            case "cliff driving":
+                com.clickElement(driver,camper.getCliffDivingCheckBox(),"Cliff Diving check Box");
+                break;
+            case "skydiving":
+                com.clickElement(driver,camper.getSkydivingCheckBox(),"sky Diving  Box");
+                break;
+            case "other":
+                com.clickElement(driver,camper.getOtherCheckBox(),"other check Box");
+                break;
+            default:
+                throw new CheckboxOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.type(driver,camper.getWebSiteTextfield(),"WebSite",strWebSite);
+//        com.clickElement(driver,auto.getOpenButton(),"Open Button");
+//        File uploadFile = new File(System.getProperty("user.dir")+"/FileUpload/"+strFileName);
+//        WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
+//        fileInput.sendKeys(uploadFile.getAbsolutePath());
+//        driver.findElement(By.id("file-submit")).click();
+//
+//        WebElement fileName = driver.findElement(By.id("uploaded-files"));
+//        Assertions.assertEquals("selenium-snapshot.png", fileName.getText());
+
+        com.clickElement(driver,camper.getNextbuttonProductData(),"Next Button");
+        Date date=new Date();
+
+        SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
+
+        date= DateUtils.addDays(date,50);
+        String advancedDate= dateFormat.format(date);
+        com.type(driver,camper.getProductdataStartDate(),"Start Date",advancedDate);
+
+        com.clickElement(driver,camper.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown ");
+        try {
+            com.selectByText(driver,camper.getProductDataInsuranceSumDropDown(),"InsuranceSum DropDown",strInsuranceSum);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        com.clickElement(driver,camper.getProductDataDamageInsurance(),"DamageInsurance DropDown ");
+        try {
+            com.selectByText(driver,camper.getProductDataDamageInsurance(),"DamageInsurance DropDown",strDamageInsurance);
+        }catch (DataIsNotVisible e) {
+            throw new RuntimeException(e);
+        }
+
+        switch (strOptionalProduct.toLowerCase()){
+            case "euro protection":
+                com.clickElement(driver,camper.getProductDataOptionalProudctsEuroProtectionCheckBox(),"Euro Protection check Box");
+                break;
+            case "legal defense insurance":
+                com.clickElement(driver,camper.getProductDataLegalDefenseInsuranceCheckBox(),"legal defense Insurance check Box");
+                break;
+
+            default:
+                throw new CheckboxOptionIsNotAvailable("Optional Product value you provided is not available in application");
+        }
+
+
+        com.javascriptExecutorMethod(driver,camper.getProductDataNextSelectPriceOptionButton(),"Next button");
+        com.clickElement(driver,camper.getProductDataNextSelectPriceOptionButton(),"Next Button ");
+
+        switch (strPriceOption.toLowerCase()){
+            case "silver":
+                com.clickElement(driver,camper.getSelectPriceOptionSilverRadioButton(),"silver radio button ");
+                break;
+            case "gold":
+                com.clickElement(driver,camper.getSelectPriceOptionGoldRadioButton(),"Gold Radio button ");
+                break;
+            case "platinum":
+                com.clickElement(driver,camper.getSelectPriceOptionPlatinumRadioButton(),"Platinum Radio Button ");
+                break;
+            case "ultimate":
+                com.clickElement(driver,camper.getSelectPriceOptionUltimateRadioButton(),"ultimate radio button");
+                break;
+            default:
+                throw new RadioButtonOptionIsNotAvailable("Hobbies value you provided is not available in application");
+        }
+        com.clickElement(driver,camper.getSelectPriceOptionNextButton(),"Next Button ");
+        com.type(driver,camper.getSendQuoteEmailTextField(),"Email ",strEmail);
+        com.type(driver,camper.getSendQuotePhoneTextField(),"Phone ",strPhone);
+        com.type(driver,camper.getSendQuoteUsernameTextField(),"Username ",strUsername);
+        com.type(driver,camper.getSendQuotePasswordTextField(),"Password  ",strPassword);
+        com.type(driver,camper.getSendQuoteConfirmPasswordTextField(),"Confirm Password  ",strConfirmPassword);
+        com.type(driver,camper.getSendQuoteCommentTextArea(),"Comments  ",strComments);
+        com.clickElement(driver,camper.getSendQuoteSendQuoteButton(),"Send Button ");
+        if(com.isVisibleOnPage(driver,camper.getSendingEmailNotification())){
+            String emailNotificationMessage=driver.findElement(camper.getSendingEmailNotification()).getText();
+            if(emailNotificationMessage.equalsIgnoreCase("Sending e-mail success!")){
+                com.clickElement(driver,camper.getOkButton(),"OK Button ");
+                Assert.assertTrue(true,"Sending e-mail success!");
+                ExtentTestManager.getInstance(test).getTest().log(Status.PASS,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Available "));
+            }else {
+                ExtentTestManager.getInstance(test).getTest().log(Status.FAIL,String.valueOf(" Pop up Message is "+emailNotificationMessage+" Not Available "));
+                Assert.fail("Sending e-mail success! is not available ");
+            }
+        }
+
+
+
+    }
+
+
 
     public void TestAutomobile2(WebDriver driver,String strMake,String strEngPer,String strDOM,String strNoSeats,String strFuelType,String strListPrice,String strLicensePlate,String strAnualMilege){
 
@@ -339,7 +1040,6 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
         }
         com.javascriptExecutorMethod(driver,acp.getContinueBtn(),"continue button");
         com.clickElement(driver,acp.getContinueBtn(),"continue button");
-
         list1=driver.findElements(By.xpath("//iframe[@id='aswift_1']"));
         if(!list1.isEmpty()){
             com.switchToFrameID(driver,"aswift_1");
@@ -355,13 +1055,10 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
                     }
                 }
 
-                //act.moveToElement(element3).build().perform();
-
             }
 
             List<WebElement> list2=driver.findElements(By.xpath("//iframe[@id='ad_iframe']"));
             if(!list2.isEmpty()){
-                // driver.manage().window().fullscreen();
                 com.switchToFrameID(driver,"ad_iframe");
                 System.out.println("Switched to second frame");
                 list1=driver.findElements(acp.getDownloadpagedismisslink());
@@ -376,20 +1073,8 @@ public class AllTestCasesFunctions extends ExtentReportGenerationClass {
                         }
                     }
 
-                    //act.moveToElement(element3).build().perform();
-
                 }
-//                try {
-//                    Thread.sleep(5000);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
 
-//                try {
-//                    Thread.sleep(5000);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
                 System.out.println("switching from Second frame");
                 driver.switchTo().defaultContent();
 

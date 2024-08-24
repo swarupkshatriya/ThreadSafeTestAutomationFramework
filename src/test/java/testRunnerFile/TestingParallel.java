@@ -44,7 +44,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
                 ExtentTestManager.getInstance(test).getTest().assignCategory("Regression");
                 ExtentTestManager.getInstance(test).getTest().assignAuthor("Ramesh Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("Edge");
+                ThreadLocalDriver.getInstance().setDriver("Edge",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
                 // driver= DriverInitializationManager.getDriver();
             } catch (Exception e) {
@@ -91,7 +91,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
             try {
                 //driver=DriverInitializationManager.getInstance("Chrome","Local").getDriver();
                // driver=DriverInitializationManager.getDriver();
-                ThreadLocalDriver.getInstance().setDriver("Chrome");
+                ThreadLocalDriver.getInstance().setDriver("Chrome",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -120,7 +120,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
 
             TestDataReader read=new TestDataReader();
 //            String browser=context.getCurrentXmlTest().getParameter("browser");
-//            String execution=context.getCurrentXmlTest().getParameter("execution");
+           String execution=context.getCurrentXmlTest().getParameter("execution");
             //excelsheetdata=read.readTestData("Test Case 3: Login User with incorrect email and password");
         startWritingInTestResult("Test Case 3: Login User with incorrect email and password");
         try {
@@ -135,7 +135,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
             try {
                // driver=DriverInitializationManager.getInstance("FireFox","Local").getDriver();
                // driver= DriverInitializationManager.getDriver();
-                ThreadLocalDriver.getInstance().setDriver("Edge");
+                ThreadLocalDriver.getInstance().setDriver("Edge",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
 
             } catch (Exception e) {
@@ -161,7 +161,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
 
             TestDataReader read=new TestDataReader();
 //            String browser=context.getCurrentXmlTest().getParameter("browser");
-//            String execution=context.getCurrentXmlTest().getParameter("execution");
+            String execution=context.getCurrentXmlTest().getParameter("execution");
            // excelsheetdata=read.readTestData("Test Case 4: Logout User");
              startWritingInTestResult("Test Case 4: Logout User");
         try {
@@ -175,7 +175,7 @@ public class TestingParallel extends ExtentReportGenerationClass{
             try {
                // driver=DriverInitializationManager.getInstance("Edge","Local").getDriver();
               //  driver= DriverInitializationManager.getDriver();
-                ThreadLocalDriver.getInstance().setDriver("Chrome");
+                ThreadLocalDriver.getInstance().setDriver("Chrome",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
             } catch (Exception e) {
                 throw new RuntimeException(e);

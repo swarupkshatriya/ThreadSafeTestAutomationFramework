@@ -8,6 +8,7 @@ import extentreport.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 
 
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
@@ -31,7 +32,8 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
 
     }
     @Test()
-    public void TestCase1(){
+    public void TestCase1(ITestContext context){
+        String execution=context.getCurrentXmlTest().getParameter("execution");
         TestDataReader read=new TestDataReader();
         startWritingInTestResult("Test Case 1: Login Functionality");
         try {
@@ -44,7 +46,7 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("UAT");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Swarup Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("Chrome");
+                ThreadLocalDriver.getInstance().setDriver("Chrome",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
 
             } catch (Exception e) {
@@ -66,8 +68,8 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
     }
 
     @Test()
-    public void TestCase2(){
-
+    public void TestCase2(ITestContext context){
+        String execution=context.getCurrentXmlTest().getParameter("execution");
         TestDataReader read=new TestDataReader();
         startWritingInTestResult("Test Case 2: Logout Functionality");
         try {
@@ -80,7 +82,7 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("Regression");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Ramesh Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("Chrome");
+                ThreadLocalDriver.getInstance().setDriver("Chrome",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
 
             } catch (Exception e) {
@@ -102,7 +104,8 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
     }
 
     @Test(dependsOnMethods = "TestCase1")
-    public void TestCase3(){
+    public void TestCase3(ITestContext context){
+        String execution=context.getCurrentXmlTest().getParameter("execution");
         TestDataReader read=new TestDataReader();
         startWritingInTestResult("Test Case 3: AdminLink Logout Functionality");
         try {
@@ -116,7 +119,7 @@ public class TestRunnerForOrangeHRM extends ExtentReportGenerationClass{
             ExtentTestManager.getInstance(test).getTest().assignCategory("Sanity");
             ExtentTestManager.getInstance(test).getTest().assignAuthor("Saksham Kshatriya");
             try {
-                ThreadLocalDriver.getInstance().setDriver("Chrome");
+                ThreadLocalDriver.getInstance().setDriver("Chrome",execution);
                 driver= ThreadLocalDriver.getInstance().getDriver();
 
             } catch (Exception e) {

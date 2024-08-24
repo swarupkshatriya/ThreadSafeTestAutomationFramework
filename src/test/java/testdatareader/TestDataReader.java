@@ -17,10 +17,7 @@ import userdefinedExceptions.TestCaseOrFlagNotFoundException;
 import userdefinedExceptions.TestCasenotFoundInOuputDataSheet;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Properties;
+import java.util.*;
 
 public class TestDataReader extends ExtentReportGenerationClass {
     Properties prop=new Properties();
@@ -313,6 +310,157 @@ public class TestDataReader extends ExtentReportGenerationClass {
         }
         return data;
     }
+
+
+    public synchronized  Object[][] getDataProviderData(String dataproviderSheetname) throws IOException,TestCaseOrFlagNotFoundException {
+        prop.load(new FileInputStream( new File(System.getProperty("user.dir")+"\\applicationproperties\\"+"testconfiguration.properties")));
+        workbookname=prop.getProperty("workbookname");
+        sheetname=dataproviderSheetname;
+        Object[][]arrayOfData;
+        File file=new File(System.getProperty("user.dir")+"\\TestDataSheet\\"+workbookname);
+        try {
+            wb= new XSSFWorkbook(file);
+            sheet=wb.getSheet(sheetname);
+            setWb(wb);
+            int noofrows=sheet.getLastRowNum();
+            int topRow=sheet.getTopRow();
+            int topColNum=sheet.getRow(topRow).getPhysicalNumberOfCells();
+            arrayOfData= new Object[noofrows][topColNum];
+            for (int i=1;i<=noofrows;i++) {
+                for (int j = 0; j < topColNum; j++) {
+                    cellval = sheet.getRow(i).getCell(j);
+                    switch (cellval.getCellType()) {
+                        case STRING:
+                            data = cellval.getStringCellValue();
+                            break;
+
+                        case NUMERIC:
+                            data = String.valueOf(cellval.getNumericCellValue());
+                            break;
+
+                        case FORMULA:
+                            data = cellval.getCellFormula();
+                            break;
+
+                        case BOOLEAN:
+                            boolean bool = cellval.getBooleanCellValue();
+                            if (bool) {
+                                data = "True";
+                            } else {
+                                data = "false";
+                            }
+                            break;
+
+                        case ERROR:
+                            data = cellval.getErrorCellString();
+                            break;
+
+                        case _NONE:
+                            data = "";
+                            break;
+
+                        case BLANK:
+                            data = "";
+                            break;
+                        default:
+                            data = null;
+
+                    }
+                     arrayOfData[i-1][j]=data;
+
+
+                }
+            }
+                wb.close();
+
+
+        } catch (InvalidFormatException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return arrayOfData;
+
+    }
+
+    public synchronized Iterator<Object[]> getDataProviderAsIterator(String dataproviderSheetname) throws IOException,TestCaseOrFlagNotFoundException {
+        prop.load(new FileInputStream( new File(System.getProperty("user.dir")+"\\applicationproperties\\"+"testconfiguration.properties")));
+        workbookname=prop.getProperty("workbookname");
+        sheetname=dataproviderSheetname;
+        List<Map<String,Object>>listofMaps=new ArrayList<>();
+        Map<String,Object> arrayOfData;
+        Collection<Object[]>dp=new ArrayList<Object[]>();
+        File file=new File(System.getProperty("user.dir")+"\\TestDataSheet\\"+workbookname);
+        try {
+            wb= new XSSFWorkbook(file);
+            sheet=wb.getSheet(sheetname);
+            setWb(wb);
+            int noofrows=sheet.getLastRowNum();
+            int topRow=sheet.getTopRow();
+            int topColNum=sheet.getRow(topRow).getPhysicalNumberOfCells();
+
+            for (int i=1;i<=noofrows;i++) {
+                arrayOfData= new HashMap<String,Object>();
+                for (int j = 0; j < topColNum; j++) {
+                    cellval = sheet.getRow(i).getCell(j);
+                    switch (cellval.getCellType()) {
+                        case STRING:
+                            data = cellval.getStringCellValue();
+                            break;
+
+                        case NUMERIC:
+                            data = String.valueOf(cellval.getNumericCellValue());
+                            break;
+
+                        case FORMULA:
+                            data = cellval.getCellFormula();
+                            break;
+
+                        case BOOLEAN:
+                            boolean bool = cellval.getBooleanCellValue();
+                            if (bool) {
+                                data = "True";
+                            } else {
+                                data = "false";
+                            }
+                            break;
+
+                        case ERROR:
+                            data = cellval.getErrorCellString();
+                            break;
+
+                        case _NONE:
+                            data = "";
+                            break;
+
+                        case BLANK:
+                            data = "";
+                            break;
+                        default:
+                            data = null;
+
+                    }
+                    arrayOfData.put(sheet.getRow(0).getCell(j).toString(),data);
+                }
+                listofMaps.add(arrayOfData);
+
+            }
+            wb.close();
+
+
+        } catch (InvalidFormatException e) {
+            throw new RuntimeException(e);
+        }
+        for (Map<String,Object>map:listofMaps){
+            dp.add(new Object[]{map});
+        }
+
+        return dp.iterator();
+
+    }
+
+
+
 }
 
 

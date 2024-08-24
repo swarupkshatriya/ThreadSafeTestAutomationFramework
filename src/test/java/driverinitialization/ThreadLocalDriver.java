@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import scriptRecording.ScreenRecorderUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,7 +21,8 @@ public class ThreadLocalDriver {
     public static final String USERNAME="swarupkshatriya_gruMHw";
     public static final String AUTOMATE_KEY="XwxmsBfziFcFzvK8yJKY";
     public static final String URL="https://"+USERNAME+":"+AUTOMATE_KEY+"@hub-cloud.browserstack.com/wd/hub";
-    public static final String remoteURL="http://localhost:4445/wd/hub";
+    public static final String remoteURL="http://192.168.86.34:4444";
+    public static final String remoteAWSEC2URL="http://13.233.62.46:4445";
     private ThreadLocalDriver(){}
 
     private static ThreadLocalDriver instance= new ThreadLocalDriver();
@@ -32,14 +34,21 @@ public class ThreadLocalDriver {
     public  WebDriver getDriver(){
         return driver.get();
     }
-    public synchronized void setDriver(String Browser) throws MalformedURLException {
+    public synchronized void setDriver(String Browser,String executionMode) throws MalformedURLException {
         switch (Browser){
             case "Chrome": {
                 System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\DriverFolder\\chromedriver.exe");
                 ChromeOptions option = new ChromeOptions();
                 option.addArguments("--start-maximized");
-               // driver.set(new ChromeDriver(option));
-                 driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+                switch (executionMode.toLowerCase()){
+                    case "remote":
+                        driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+                        break;
+                    case "local":
+                        driver.set(new ChromeDriver(option));
+                        break;
+                }
+
                 break;
             }
             case "Edge": {
@@ -56,22 +65,40 @@ public class ThreadLocalDriver {
 
 
                 option.addArguments("--start-maximized");
-                driver.set(new RemoteWebDriver(new URL(remoteURL),option));
-              //  driver.set(new EdgeDriver(option));
+                option.addArguments("-inprivate");
+                switch (executionMode.toLowerCase()){
+                    case "remote":
+                        driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+                        break;
+                    case "local":
+                        driver.set(new EdgeDriver(option));
+                        break;
+                }
                 break;
             }
             case "FireFox": {
                 System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\DriverFolder\\geckodriver.exe");
                 FirefoxOptions option = new FirefoxOptions();
-                option.addArguments("--maximized");
+              //  option.addArguments("--maximized");
+
+                option.addArguments("--kiosk");
                 //  Thread t3=new Thread(new FireFoxDriverInitiation(),"FireFoxInitiation");
                 //  t3.start();
                 //  options.addArguments("--headless");
                 //   options.addArguments("--Private");
-                driver.set(new RemoteWebDriver(new URL(remoteURL),option));
-               // driver.set(new FirefoxDriver(option));
+                switch (executionMode.toLowerCase()){
+                    case "remote":
+                        driver.set(new RemoteWebDriver(new URL(remoteURL),option));
+                        break;
+                    case "local":
+                        driver.set(new FirefoxDriver(option));
+                        break;
+                }
+
                 break;
             }
+
+
         }
 
     }
@@ -79,6 +106,16 @@ public class ThreadLocalDriver {
         if(driver.get()!=null){
             driver.get().quit();
             driver.remove();
+//            try {
+//                ScreenRecorderUtil.stopRecord();
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//            try {
+//                Thread.sleep(5000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
         }
 
     }

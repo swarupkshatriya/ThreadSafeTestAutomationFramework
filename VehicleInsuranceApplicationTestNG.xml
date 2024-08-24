@@ -8,7 +8,7 @@
         }-->
 
         <parameter name="browser" value="Chrome"/>
-        <parameter name="execution" value="Remote"/>
+        <parameter name="execution" value="Local"/>
         <parameter name="remoteHubAddress" value="http://localhost:4445/wd/hub"/>
         <classes>
             <class name="testRunnerFile.TestRunnerForVehicleInsurance"/>
