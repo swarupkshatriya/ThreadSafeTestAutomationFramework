@@ -1,22 +1,3 @@
-package AutomationExcercise;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class SeleniumGrid {
-    public static void main (String args[])throws MalformedURLException,InterruptedException {
-        Capabilities cap=new FirefoxOptions();
-        WebDriver driver=new RemoteWebDriver( new URL("http://localhost:4445/wd/hub"),cap);
-        driver.get("https://www.google.com");
-        driver.findElement(By.name("q")).sendKeys("Hello Grid");
-        Thread.sleep(5000);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd551a76861cd9dcd9f134185a0dfac984e9f1259ca90692568ecf5c25f984c6
+size 829
