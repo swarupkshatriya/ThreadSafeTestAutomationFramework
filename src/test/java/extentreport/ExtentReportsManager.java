@@ -1,31 +1,3 @@
-package extentreport;
-
-import com.aventstack.extentreports.ExtentReports;
-
-public class ExtentReportsManager {
-
-    private static ExtentReportsManager instance=null;
-    private static ThreadLocal<ExtentReports> tlextent=new ThreadLocal<>();
-    public ExtentReportsManager(){}
-
-    private void initExtent(ExtentReports extent){
-                tlextent.set(extent);
-    }
-
-    public static ExtentReportsManager getInstance(ExtentReports extent){
-        if(instance==null){
-            synchronized (ExtentReportsManager.class){
-                if(instance==null){
-                    instance=new ExtentReportsManager();
-                }
-            }
-        }
-        if(tlextent.get()==null){
-            instance.initExtent(extent);
-        }
-        return instance;
-    }
-    public ExtentReports getExtents(){
-        return tlextent.get();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:47c07f03ffd27f4cc767e7fdd04abf5c91a5a7b5a4397ffc3f8bb9459e06a453
+size 893

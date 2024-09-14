@@ -1,22 +1,3 @@
-package VehicalInsuranceApplication;
-
-import org.openqa.selenium.By;
-
-public class Truck extends AutomobileClass{
-
-    public By truckLink= By.xpath("(//a[@id='nav_truck'])[1]");
-    public By payLoad=By.xpath("//input[@id='payload']");
-    public By totalWeight=By.xpath("//input[@id='totalweight']");
-
-    public By getTruckLink() {
-        return truckLink;
-    }
-
-    public By getPayLoad() {
-        return payLoad;
-    }
-
-    public By getTotalWeight() {
-        return totalWeight;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a6858ad7ccc268c3e74d39fedff51c8035a74cd72c5df489c27919548e91acb
+size 519

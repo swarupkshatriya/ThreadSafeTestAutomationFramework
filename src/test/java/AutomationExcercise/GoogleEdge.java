@@ -1,18 +1,3 @@
-package AutomationExcercise;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-
-public class GoogleEdge extends UmeshPractice implements Runnable {
-
-    @Override
-    public void run() {
-        try {
-            WebDriver driver = new EdgeDriver();
-            driver.get("https://www.google.com");
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:19e5bcd1b8f76d18942726db5fc7d3c43613c2377b501420f9d61e2ca8c72611
+size 444

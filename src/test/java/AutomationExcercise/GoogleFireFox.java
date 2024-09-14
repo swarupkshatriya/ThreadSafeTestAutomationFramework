@@ -1,17 +1,3 @@
-package AutomationExcercise;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-public class GoogleFireFox extends UmeshPractice implements Runnable{
-    @Override
-    public void run() {
-        try {
-            WebDriver driver = new FirefoxDriver();
-            driver.get("https://www.google.com");
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c6bdde113fec3cd64c1f3fcd55d23c3bbc077a3fa2880caa5db757413b894571
+size 453

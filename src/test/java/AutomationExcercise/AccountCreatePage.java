@@ -1,20 +1,3 @@
-package AutomationExcercise;
-
-import org.openqa.selenium.By;
-
-public class AccountCreatePage {
-    public By accountCreatedLabel= By.xpath("//b[text()='Account Created!']");
-    public By continueBtn=By.xpath("//a[text()='Continue']");
-    public By downloadpagedismisslink=By.xpath("//div[@id='dismiss-button']");
-
-    public By getDownloadpagedismisslink() {
-        return downloadpagedismisslink;
-    }
-    public By getAccountCreatedLabel() {
-        return accountCreatedLabel;
-    }
-
-    public By getContinueBtn() {
-        return continueBtn;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3fa8a0d1363ea03ff010e39e556f99eb0491dd7c68ced550fdb6e15f1e6c3848
+size 580
